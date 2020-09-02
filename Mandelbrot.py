@@ -43,7 +43,7 @@ for x in range(arr.shape[0]):
             cn = cn.square()
 
             if cn.real * cn.real + cn.imaginary * cn.imaginary > 4:
-                arr[x][y] = 1
+                arr[y][x] = 1
                 break
 
     print(str((x / arr.shape[0]) * 100) + " %")
