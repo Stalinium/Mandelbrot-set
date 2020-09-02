@@ -30,6 +30,7 @@ steps = ((end[0] - start[0]) / detail, (end[1] - start[1]) / detail)
 
 arr = np.zeros((detail, detail))
 
+depth = 32
 
 for x in range(arr.shape[0]):
     for y in range(arr.shape[1]):
@@ -37,13 +38,13 @@ for x in range(arr.shape[0]):
         cn = ComplexNumber(0, 0)
         cn2 = ComplexNumber(start[0] + x * steps[0], start[1] + y * steps[1])
 
-        for x2 in range(0, 32):
+        for x2 in range(0, depth):
 
             cn.add(cn2)
             cn = cn.square()
 
             if cn.real * cn.real + cn.imaginary * cn.imaginary > 4:
-                arr[y][x] = 1
+                arr[y][x] = x2
                 break
 
     print(str((x / arr.shape[0]) * 100) + " %")
