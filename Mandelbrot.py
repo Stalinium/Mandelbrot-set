@@ -11,8 +11,7 @@ class ComplexNumber:
     def add(self, cn):
 
         self.real += cn.real
-        self.imaginary += cn.imaginary
-        
+        self.imaginary += cn.imaginary        
 
     def square(self):
 
@@ -22,14 +21,13 @@ class ComplexNumber:
 
         return "(" + str(self.real) + " + " + str(self.imaginary) + "i)"
 
-
 start = (-1.5, 1.5)
 end = (0.5, -1.5)
 detail = 1000
 steps = ((end[0] - start[0]) / detail, (end[1] - start[1]) / detail)
+detail2 = 8
 
 arr = np.zeros((detail, detail))
-
 
 for x in range(arr.shape[0]):
     for y in range(arr.shape[1]):
@@ -37,7 +35,7 @@ for x in range(arr.shape[0]):
         cn = ComplexNumber(0, 0)
         cn2 = ComplexNumber(start[0] + x * steps[0], start[1] + y * steps[1])
 
-        for x2 in range(0, 8):
+        for x2 in range(0, detail2):
 
             cn.add(cn2)
             cn = cn.square()
