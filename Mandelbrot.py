@@ -37,7 +37,7 @@ for x in range(arr.shape[0]):
         cn = ComplexNumber(0, 0)
         cn2 = ComplexNumber(start[0] + x * steps[0], start[1] + y * steps[1])
 
-        for x2 in range(0, 16):
+        for x2 in range(0, 32):
 
             cn.add(cn2)
             cn = cn.square()
